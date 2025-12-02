@@ -204,13 +204,18 @@ def reduce(
 def sum(ls: Iterable[float]) -> float:
     "Sum up a list using `reduce` and `add`."
     try:
-        start = next(iter(ls))
+        iterator = iter(list(ls))
+        start = next(iterator)
     except StopIteration:
-        return 0
-    return reduce(add, start)(ls)
+        return 0.0
+    return reduce(add, start)(iterator)
 
 
 def prod(ls: Iterable[float]) -> float:
     "Product of a list using `reduce` and `mul`."
-    start = next(iter(ls))
-    return reduce(mul, start)(ls)
+    try:
+        iterator = iter(list(ls))
+        start = next(iterator)
+    except StopIteration:
+        return 0.0
+    return reduce(mul, start)(iterator)
