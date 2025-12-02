@@ -113,7 +113,7 @@ class Scalar:
 
     def __sub__(self, b: ScalarLike) -> Scalar:
         # TODO: Implement for Task 1.2.
-        return Add.apply(self, Inv.apply(b))
+        return Add.apply(self, Neg.apply(b))
 
     def __neg__(self) -> Scalar:
         # TODO: Implement for Task 1.2.
